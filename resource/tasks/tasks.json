@@ -2228,9 +2228,20 @@
     "VisitNextOcr": {
         "algorithm": "OcrDetect",
         "text": ["访问下位"],
-        "action": "ClickSelf",
+        "action": "DoNothing",
         "roi": [1080, 570, 200, 130],
-        "next": ["VisitNext@LoadingText", "VisitLimited", "VisitNext", "VisitNextBlack", "VisitNextOcr"]
+        "next": ["VisitNext@LoadingText", "VisitNextOcrActive", "VisitNextBlack#next"]
+    },
+    "VisitNextOcrActive": {
+        "baseTask": "VisitNext",
+        "template": "VisitNext.png",
+        "pureColor": true,
+        "colorScales": [
+            [
+                [0, 130, 135],
+                [30, 255, 255]
+            ]
+        ]
     },
     "MallBegin": {
         "algorithm": "JustReturn",
